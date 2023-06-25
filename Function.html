@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Call, Apply and Bind</title>
+</head>
+<body>
+    <script>
+        function intro(){
+            console.log("My name is ", this.name);
+        }
+        const person1 = {
+            name: "Ajay",
+            introduce: intro
+        };
+        const person2 = {
+            name: "Ovais"
+        };
+        const newIntro = person1.introduce.bind(person2); //Didn't call immediately
+        newIntro();
+        person1.introduce();
+        person1.introduce.call(person2); //call immediately
+        person1.introduce.apply(person2); //call immediately
+    </script>
+    
+</body>
+</html>
